@@ -21,31 +21,31 @@ Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
 \* Notes: Class Explorer is responsible for setting exploration, and class Generator is responsible for CNF generatoin.
 
 ### COMPILATION
-1. Compiling the ABC library "libabc.a":
+1. Compiling the ABC library ```libabc.a```:
 
-   Go to abc/, then
+   Go to ```abc/```, then use
    ```shell
    make libabc.a READLINE=0 PTHREADS=0
    ```
-   \* Notes: This may consume much time.
+   \* Notes: This may consume a lot of time
    
-2. Compiling "glucose_exp" for exploration:
+2. Compiling ```glucose_exp``` for exploration:
 
-   Go to glucose_exp/core
+   Go to ```glucose_exp/core```
    ```shell
    make
    mv glucose glucose_exp
    ```
 
-3. Compiling the program "expcnf":
+3. Compiling the program ```expcnf```:
 
-   Move the ABC library (libabc.a) from abc/ to src/. Go to src/ and use
+   Move the ```libabc.a``` to ```src/```, then use
    ```shell
    make
    ```
 
 ### EXECUTION
-1. Put "expcnf" and "glucose_exp" in the same directory.
+1. Put ```expcnf``` and ```glucose_exp``` in the same directory
 2. Command-line syntax:
 
    * Exploration
