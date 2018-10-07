@@ -1,7 +1,13 @@
-Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
-===
+# 2014 ICCAD Contest Problem A: <br /> Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
 
-### FILES
+### Introduction
+We provide an efficient approach for parameter optimization in SAT solving. Given 3 combinational single-output netlists as samples, our goal is to learn the setting that can generalize to other test cases with similar circuit characteristics. To achieve this goal, [**ABC**](https://people.eecs.berkeley.edu/~alanmi/abc/) and [**Glucose**](http://www.labri.fr/perso/lsimon/glucose/) are incorporated into our framework. **ABC** uses sequential synthesis to generate simplified circuit then encodes it into CNF format, while **Glucose** returns either SAT or UNSAT for each test case. For detailed problem description, please refer to the contest's [webpage](http://cad_contest.ee.ncu.edu.tw/CAD-contest-at-ICCAD2014/problem_a/default.html)
+
+To find the best CNF encoder setting, we interleave standard synthesis scripts provided by **ABC** like ```resyn```, ```compress``` for several iterations. The sequence resulting in the fewest gate count is stored as a vector. This allows us to find the best setting among 3 samples by minimizing the MSE. To find the best SAT solver setting, we exhaustive search through all possible *K* and *R* (**Glucose** parameters) using *nb learnts DL2* as the speed indicator. For detailed method explanation, please refer to ```Report.pdf```.
+
+Our project won an honorable mention (top-10) in 2014 ICCAD Contest.
+
+### Files
 ```
 •
 ├── abc/                        The ABC package
@@ -20,7 +26,7 @@ Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
 ```
 \* Notes: Class Explorer is responsible for setting exploration, and class Generator is responsible for CNF generatoin.
 
-### COMPILATION
+### Compilation
 1. Compiling the ABC library ```libabc.a```:
 
    Go to ```abc/```, then use
@@ -44,7 +50,7 @@ Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
    make
    ```
 
-### EXECUTION
+### Execution
 1. Put ```expcnf``` and ```glucose_exp``` in the same directory
 2. Command-line syntax:
 
@@ -56,6 +62,5 @@ Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
       ```
       expcnf -gen <EncoderSetting> <test.v> <CnfOutput>
       ```
-      
-3. For more information, please refer to the problem's [webpage](http://cad_contest.ee.ncu.edu.tw/CAD-contest-at-ICCAD2014/problem_a/default.html)
+  
 
