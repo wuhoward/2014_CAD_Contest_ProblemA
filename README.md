@@ -1,4 +1,4 @@
-# 2014 ICCAD Contest Problem A: <br /> Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
+# 2014 CAD Contest Problem A: <br /> Simultaneous CNF Encoder Optimization with SAT solver Setting Selection
 
 ### Introduction
 We provide an efficient approach for parameter optimization in SAT solving. Given 3 combinational single-output netlists as samples, our goal is to learn the setting that can generalize to other test cases with similar circuit characteristics. To achieve this goal, [**ABC**](https://people.eecs.berkeley.edu/~alanmi/abc/) and [**Glucose**](http://www.labri.fr/perso/lsimon/glucose/) are incorporated into our framework. **ABC** uses sequential synthesis to generate simplified circuit then encodes it into CNF format, while **Glucose** returns either SAT or UNSAT for each test case. For detailed problem description, please refer to the contest's [webpage](http://cad_contest.ee.ncu.edu.tw/CAD-contest-at-ICCAD2014/problem_a/default.html)
